@@ -5,11 +5,10 @@ import products from './../data/products'
 import { Link } from 'react-router-dom';
 import { Card } from '../components/Card';
 import { Footer } from '../components/Footer';
-
 import { useLoad } from '../context/LoadContext';
 import { Loading } from '../components/Loading';
-
 import ReactPaginateProps from 'react-paginate';
+import { VscChevronDown } from 'react-icons/vsc'
 
 
 
@@ -18,6 +17,7 @@ export const Productos = () => {
     const [productos, setProductos] = useState([]);
     const [selectDepartamento, setSelectDepartamento] = useState(null);
     const [pageNumber, setPageNumber] = useState(0);
+    const [open, setOpen] = useState(false)
     let { familia } = useParams();
     const {load} = useLoad()
 
@@ -100,6 +100,11 @@ export const Productos = () => {
       });
   }
 
+  const handleClickOpen = (event) => {
+    setOpen(!open)
+    setSelectDepartamento(event.target.dataset.depto)
+}
+
   return (
     <>
     {
@@ -111,8 +116,9 @@ export const Productos = () => {
             <div className='wrap'>
                 <section className='wrap-productos'>
                     <aside className='menu-departamentos'>
+                        <button className='btn-departamentos' onClick={handleClickOpen}>{familia} <VscChevronDown /></button>
                         <h3>{familia}</h3>
-                        <ul>
+                        <ul className='list-departamentos view-desktop' data-aos="fade-up">
                             {
                                 arrayMenu.filter((item) => item.familia === familia)[0].departamentos.map((item) =>{
                                     return(
@@ -121,7 +127,22 @@ export const Productos = () => {
                                 })
                             }
                         </ul>
+                        {
+                            open ? (
+                                <ul className='list-departamentos' data-aos="fade-up">
+                                    {
+                                        arrayMenu.filter((item) => item.familia === familia)[0].departamentos.map((item) =>{
+                                            return(
+                                                <li><Link to='' onClick={handleClickOpen} data-depto={item} className={`${item === selectDepartamento ? 'depto-active': ''}`}>{item}</Link></li>
+                                            )
+                                        })
+                                    }
+                                </ul>
+                            ):('')
+                        }
                     </aside>
+
+
                     <section className='container-card-productos'>
                         
                         <div className='container-cards'>
