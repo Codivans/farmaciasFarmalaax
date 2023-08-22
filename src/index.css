@@ -49,9 +49,6 @@ box-shadow: 0px 3px 6px -2px rgba(140,140,140,1);
   width: 100%;
 }
 
-.contain-search{
-  width: 300px;
-}
 
 nav{
   margin-left: auto;
@@ -328,6 +325,21 @@ footer{
   border-radius: 6px;
 }
 
+.btn-departamentos{
+  background-color: #78447a;
+  border: 1px solid #78447a;
+  color: white;
+  font-family: 'Bricolage Grotesque';
+  text-align: center;
+  font-size: 18px;
+  padding: 6px;
+  border-radius: 6px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  display: none;
+}
+
 .menu-departamentos ul li a{
   border-bottom: 1px solid #ededed;
   text-decoration: none;
@@ -368,7 +380,7 @@ footer{
   justify-content: center;
   align-items: center;
 }
-.container_loading svg{
+.container_loading img{
   width: 300px!important;
 }
 .cls-1,.cls-3{fill:#279da4;}
@@ -631,3 +643,203 @@ footer{
   color: #424242;
   font-size: 16px;
 }
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 60rem){ /* 950px */
+  header{
+    height: 100px;
+  }
+  .contain-header{
+    display: block;
+  }
+  .contain-logo{
+    width: 100px;
+    height: 60px;
+    margin: 0px auto;
+  }
+
+
+  .row-columns{
+    flex-wrap: wrap;
+  }
+  .column-2{
+    width: 96%;
+    height: 200px;
+    margin-block: 10px;
+  }
+  .column-2 img{
+    width: 120px;
+  }
+  .column-1{
+    width: 45%;
+    margin-top: 10px;
+  }
+    
+  .header-card-ofer h2, h3{
+    line-height: 20px;
+    font-size: 20px;
+  }
+
+  .column-2 .image-menu-cards{
+    width: 150px;
+    height: 150px;
+    margin-left: 4px;
+  }
+  .column-1 .image-menu-cards{
+    width: 100px;
+    height: 100px;
+  }
+
+
+  /* Footer */
+  .wrap-footer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+  .copyright-text{
+    background-color: #1b416f;
+    padding: 4px;
+    color: white;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: -5px;
+    flex-wrap: wrap;
+  }
+
+
+
+  /* Nosotros */
+  .historia-txt{
+    flex-wrap: wrap;
+  }
+  .txt-column{
+    width: 98%;
+  }
+  .container-mision-vision{
+    width: 98%;
+    flex-wrap: wrap;
+    margin-top: 0px;
+  }
+
+
+  /* Franquicias */
+  .contenido-cards-inversion{
+    width: 98%;
+    flex-wrap: wrap;
+  }
+  .card-inversion{
+    margin-block: 10px;
+  }icon-service
+
+  .container-ventajas > p{
+    line-height: 22px;
+  }
+
+
+  .container-services{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    width: 98%;
+    margin: 20px auto;
+    gap: 10px;
+
+  }
+  .icon-service{
+    width: 60px!important;
+    height: 60px!important;
+    margin-left: 80px!important;
+  }
+  .icon-service svg{
+    font-size: 32px!important;
+  }
+  .info-services h3{
+    font-size: 16px;
+  }
+
+  .info-services p{
+    font-size: 14px;
+  }
+
+
+
+  /* Productos */
+  .wrap-productos{
+    display: block;
+  }
+  .menu-departamentos{
+    min-width: 250px;
+    max-width: 20%;
+    height: 40px;
+    overflow: hidden!important;
+    position: inherit;
+    top: 0px;
+  }
+  .btn-departamentos{
+    display: flex;
+  }
+
+  .menu-departamentos h3{
+    display: none;
+  }
+  .list-departamentos{
+    background-color: #f3f3f3;
+    border-radius: 6px;
+    position: absolute;
+    width: 250px;
+    margin-top: 10px;
+    z-index: 9;
+  }
+  .view-desktop{
+    display: none;
+  }
+
+  .container-card-productos{
+    width: 100%;
+  }
+
+  .container-cards{
+    margin-left: 0px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .card-product{
+    display: flex;
+    height: 120px;
+    width: 100%pagina;
+  }
+  .card-product .imagen-product{
+    width: 130px;
+    height: 130px;
+  }
+  .card-product .imagen-product img{
+    width: 100%;
+  }
+  .card-product .container-info{
+    text-align: left;
+  }
+
+  .paginationBttns{
+    width: auto;
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  
+  .paginationBttns a{
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+  
+
+}
+
