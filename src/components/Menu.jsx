@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logotipo from './../assets/img/farmalaax.svg';
+import logotipo from './../assets/img/logo-farmaLAAX.png';
 import products from './../data/products'
 import { FiMenu } from 'react-icons/fi'
 import { Link } from 'react-router-dom';
