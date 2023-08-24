@@ -70,6 +70,7 @@ export const Productos = () => {
 
     const handleClick = (event) => {
         setSelectDepartamento(event.target.dataset.depto)
+        setOpen(false)
     }
 
     const usersPerPage = 60
@@ -102,7 +103,7 @@ export const Productos = () => {
 
   const handleClickOpen = (event) => {
     setOpen(!open)
-    setSelectDepartamento(event.target.dataset.depto)
+    // setSelectDepartamento(event.target.dataset.depto)
 }
 
   return (
@@ -116,24 +117,29 @@ export const Productos = () => {
             <div className='wrap'>
                 <section className='wrap-productos'>
                     <aside className='menu-departamentos'>
-                        <button className='btn-departamentos' onClick={handleClickOpen}>{familia} <VscChevronDown /></button>
-                        <h3>{familia}</h3>
-                        <ul className='list-departamentos view-desktop' data-aos="fade-up">
-                            {
-                                arrayMenu.filter((item) => item.familia === familia)[0].departamentos.map((item) =>{
-                                    return(
-                                        <li><Link to='' onClick={handleClick} data-depto={item} className={`${item === selectDepartamento ? 'depto-active': ''}`}>{item}</Link></li>
-                                    )
-                                })
-                            }
-                        </ul>
+                        <button className='btn-departamentos' onClick={handleClickOpen}>
+                            {familia}<span>{selectDepartamento!= null ? ` / ${selectDepartamento} ` : ''}</span><VscChevronDown />
+                        </button>
+                        <div>
+                            <h3>{familia}</h3>
+                            <ul className='list-departamentos view-desktop' data-aos="fade-up">
+                                {
+                                    arrayMenu.filter((item) => item.familia === familia)[0].departamentos.map((item) =>{
+                                        return(
+                                            <li><Link to='' onClick={handleClick} data-depto={item} className={`${item === selectDepartamento ? 'depto-active': ''}`}>{item}</Link></li>
+                                        )
+                                    })
+                                }
+                            </ul>
+                        </div>
+                        
                         {
                             open ? (
                                 <ul className='list-departamentos' data-aos="fade-up">
                                     {
                                         arrayMenu.filter((item) => item.familia === familia)[0].departamentos.map((item) =>{
                                             return(
-                                                <li><Link to='' onClick={handleClickOpen} data-depto={item} className={`${item === selectDepartamento ? 'depto-active': ''}`}>{item}</Link></li>
+                                                <li><Link to='' onClick={handleClick} data-depto={item} className={`${item === selectDepartamento ? 'depto-active': ''}`} name="item-departamento">{item}</Link></li>
                                             )
                                         })
                                     }
@@ -141,8 +147,6 @@ export const Productos = () => {
                             ):('')
                         }
                     </aside>
-
-
                     <section className='container-card-productos'>
                         
                         <div className='container-cards'>

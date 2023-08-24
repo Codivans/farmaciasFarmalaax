@@ -22,9 +22,6 @@ export const CarruselUno = () => {
                 disableOnInteraction: false,
             }}
             spaceBetween={10}
-            pagination={{
-            clickable: true,
-            }}
             modules={[Pagination, Autoplay]}
             className="mySwiper"
             >

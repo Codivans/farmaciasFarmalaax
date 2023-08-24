@@ -3,6 +3,7 @@ import logotipo from './../assets/img/farmalaax.svg';
 import facebook from './../assets/img/facebook.png'
 import whatsapp from './../assets/img/whatsapp.png'
 import { Link } from 'react-router-dom';
+import { FaWhatsapp, FaFacebook } from 'react-icons/fa'
 
 export const Footer = () => {
   return (
@@ -11,11 +12,9 @@ export const Footer = () => {
                 <div>
                     <h2>Información</h2>
                     <ul>
-                        <li><Link to='/'>¿Quienes somos?</Link></li>
-                        <li><Link to='/'>Misión y Visión</Link></li>
-                        <li><Link to='/'>Franquicias</Link></li>
-                        <li><Link to='/'>Aviso de privacidad</Link></li>
-                        <li><Link to='/'>Terminos y condiciones</Link></li>
+                        <li><Link to='/nosotros'>¿Quienes somos?</Link></li>
+                        <li><Link to='/nosotros'>Misión y Visión</Link></li>
+                        <li><Link to='/franquicias'>Franquicias</Link></li>
                     </ul>
                 </div>
                 <div>
@@ -32,13 +31,12 @@ export const Footer = () => {
                 <div>
                     <h2>Contacto</h2>
                     <div className='container-img-social'>
-                        <img src={facebook} />
-                        <img src={whatsapp} />
+                        <Link to="https://www.facebook.com/profile.php?id=61550733921151" target="_blank"><FaFacebook className='icon-facebook'/></Link>
+                        <Link to="/"><FaWhatsapp className='icon-whatsapp'/></Link>
                     </div>
 
-                    <p><b>Doicilio:</b> Calle 17 #8, Col. Las Aguilas, Ciudad Nezahualcoyotl, EdoMex</p>
-                    <p><b>Cel:</b> 55 1023 3434</p>
-                    <img src={logotipo} className='logo-footer'/>
+                    <p><b>Domicilio:</b> Calle 17 #8, Col. Las Aguilas, Ciudad Nezahualcoyotl, EdoMex</p>
+                    <p><b>Cel:</b> 55 3455 8149</p>
                 </div>
             </div>
             <div className='copyright-text'>

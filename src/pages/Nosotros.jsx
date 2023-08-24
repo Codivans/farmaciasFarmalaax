@@ -15,30 +15,30 @@ export const Nosotros = () => {
         <Menu />
         <div className='wrap article-about'>
           <div className='historia-txt'>
-            <div className='txt-column'>
+            <div className='txt-column' data-aos="flip-up">
               <h2 className='title-brand'>Nuestra Historia.</h2>
               <p><span className='txt-brand'>Farma<span>LAAX</span></span> se originó a partir de la visión de un equipo comprometido que comprendía las necesidades locales.
                 Con experiencia en cadenas de farmacias y una cuidadosa selección de medicamentos y artículos de perfumería, 
                 la primera sucursal se convirtió en un símbolo de calidad y comodidad, 
                 marcando el inicio de nuestro compromiso inquebrantable con la comunidad y la atención al cliente.</p>
             </div>
-            <div className='image-column'>
+            <div className='image-column' data-aos="fade-down-left">
               <img src={imgRound}/>
             </div>
-            
           </div>
-          <div className='container-mision-vision'>
-            <div>
+          
+          <div className='container-mision-vision' id="mision">
+            <div data-aos="zoom-in-down">
               <h2 className='title-brand'>Misión.</h2>
               <p>En <span className='txt-brand'>Farma<span>LAAX</span></span>, nuestra misión es brindar productos farmacéuticos de alta calidad a precios accesibles, siendo un socio confiable en la salud y el bienestar de las comunidades. Ofrecemos productos esenciales en un ambiente cercano y amigable, priorizando la comodidad y la atención personalizada.</p>
             </div>
   
-            <div>
+            <div data-aos="zoom-in-down">
               <h2 className='title-brand'>Visión.</h2>
               <p><span className='txt-brand'>Farma<span>LAAX</span></span> aspira a ser la cadena de farmacias líder en México, reconocida por su accesibilidad, calidad y contribución a la salud y el bienestar de las comunidades.</p>
             </div>
           </div>
-          <div className='valores'>
+          <div className='valores' data-aos="fade-right">
             <h2 className='title-brand'>Valores de FarmaLAAX:</h2>
             <ul>
               <li><b>Compromiso con la Comunidad</b>: Valoramos y comprendemos las necesidades de nuestras comunidades locales en México. Estamos comprometidos a ser un recurso confiable en salud y bienestar.</li>

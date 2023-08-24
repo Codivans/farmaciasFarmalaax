@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer'
 import { VscVmOutline, VscLocation, VscPackage, VscFolderActive } from 'react-icons/vsc';
 import { useLoad } from '../context/LoadContext';
 import { Loading } from '../components/Loading';
+import { CarruselModelosNegocio } from '../components/CarruselModelosNegocio';
 
 export const Franquicias = () => {
 
@@ -20,67 +21,21 @@ export const Franquicias = () => {
               <div className='wrap wrap-franquicias'>
                 <h2>Modelos de negocios <span className='txt-brand'>Farma<span>LAAX</span></span></h2>
               </div>
-            
               <div className='contenido-cards-inversion'>
-
-                <div className='card-inversion'>
-                  <div className='card-header-inversion'>Micro</div>
-                  <div className='triangulo'></div>
-                  <div className='card-body-inversion'>
-                    <ul>
-                      <li><p>Mobiliario y Equipos</p><span>$90,000</span></li>
-                      <li><p>Inventario Patente</p><span>$180,000</span></li>
-                      <li><p>Inventario Genérico</p><span>$50,000</span></li>
-                      <li><p>Inventario Perfumería</p><span>$30,000</span></li>
-                      <li><p>Uso de marca</p><span>$50,000</span></li>
-                    </ul>
-                  </div>
-                  <div className='card-footer-inversion'><h4>$400,000</h4></div>
-                </div>
-
-                <div className='card-inversion'>
-                  <div className='card-header-inversion bg-card-green'>Estandar</div>
-                  <div className='triangulo triangulo-green'></div>
-                  <div className='card-body-inversion'>
-                    <ul>
-                      <li><p>Mobiliario y Equipos</p><span>$120,000</span></li>
-                      <li><p>Inventario Patente</p><span>$300,000</span></li>
-                      <li><p>Inventario Genérico</p><span>$80,000</span></li>
-                      <li><p>Inventario Perfumería</p><span>$50,000</span></li>
-                      <li><p>Uso de marca</p><span>$50,000</span></li>
-                    </ul>
-                  </div>
-                  <div className='card-footer-inversion bg-card-green'><h4>$600,000</h4></div>
-                </div>
-
-                <div className='card-inversion'>
-                  <div className='card-header-inversion bg-card-yellow'>Premium</div>
-                  <div className='triangulo triangulo-yellow'></div>
-                  <div className='card-body-inversion'>
-                    <ul>
-                      <li><p>Mobiliario y Equipos</p><span>$160,000</span></li>
-                      <li><p>Inventario Patente</p><span>$400,000</span></li>
-                      <li><p>Inventario Genérico</p><span>$100,000</span></li>
-                      <li><p>Inventario Perfumería</p><span>$90,000</span></li>
-                      <li><p>Uso de marca</p><span>$50,000</span></li>
-                    </ul>
-                  </div>
-                  <div className='card-footer-inversion bg-card-yellow'><h4>$800,000</h4></div>
-                </div>
-
-                <div className='container-margen'>
+                <CarruselModelosNegocio data-aos="fade-up" />
+                <div className='container-margen' data-aos="fade-left">
                   <p>Margen de ganancia <b>25%</b> y retorno de inversión en <b>24 meses</b></p>
                 </div>
-
               </div>
 
               <div className='container-ventajas' >
-                <h2>Ventajas</h2>
-
-                <p>Al adquirir tu franquicia obtendras estos beneficios.</p>
+                <div className='wrap wrap-txt-ventajas'>
+                  <h2>Ventajas</h2>
+                  <p>Al adquirir tu franquicia obtendras estos beneficios.</p>
+                </div>
 
                 <div className='container-services'>
-                  <div className='column-services'>
+                  <div className='column-services' data-aos="fade-right">
                     <div className='icon-service'>
                       <VscVmOutline />
                     </div>
@@ -92,7 +47,7 @@ export const Franquicias = () => {
                     </div>
                   </div>
 
-                  <div className='column-services'>
+                  <div className='column-services' data-aos="fade-right">
                     <div className='icon-service'>
                       <VscLocation />
                     </div>
@@ -103,7 +58,8 @@ export const Franquicias = () => {
                       de la rentabilidad.</p>
                     </div>
                   </div>
-                  <div className='column-services'>
+
+                  <div className='column-services' data-aos="fade-left">
                     <div className='icon-service'>
                       <VscPackage />
                     </div>
@@ -114,7 +70,8 @@ export const Franquicias = () => {
                       distribuidoras oficiales.</p>
                     </div>
                   </div>
-                  <div className='column-services'>
+
+                  <div className='column-services' data-aos="fade-left">
                     <div className='icon-service'>
                       <VscFolderActive />
                     </div>

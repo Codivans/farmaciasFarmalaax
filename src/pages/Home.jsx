@@ -1,6 +1,6 @@
 import React,{ useEffect } from 'react';
 
-import banner from './../assets/Banners/banner1.jpg';
+import banner from './../assets/Banners/banner1.png';
 import imgGenericos from './../assets/img/genericos.png'
 import imgDesodorantes from './../assets/img/desodorante.png'
 import imgCuracion from './../assets/img/curacion.png'

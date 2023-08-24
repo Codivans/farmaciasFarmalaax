@@ -24,4 +24,3 @@ export const Loading = () => {
     </div>
   )
 }
-

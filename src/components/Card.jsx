@@ -5,7 +5,7 @@ export const Card = ({codigo, nombre}) => {
         e.target.src =  'https://farmaprontoneza.com/image/predeterminada.jpg' 
     }
   return (
-    <div className='card-product' data-aos="flip-left" key={codigo}>
+    <div className='card-product' data-aos="flip-left">
         <div className='imagen-product'>
             <img loading="lazy" onError={imagenDefault} src={'https://farmaprontoneza.com/image/' + parseInt(codigo, 10) + '.jpg'} alt={nombre} />
         </div>
