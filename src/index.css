@@ -210,6 +210,7 @@ nav ul li a:hover{
 .card-product .imagen-product{
   width: 170px;
   height: 170px;
+  margin-inline: 15px;
 }
 .card-product .imagen-product img{
   width: 100%;
