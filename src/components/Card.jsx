@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Card = ({codigo, nombre}) => {
     const imagenDefault = (e) =>{
-        e.target.src =  'https://farmaprontoneza.com/image/predeterminada.jpg' 
+        e.target.src =  'https://farmaprontoneza.com/image/FARMALAAX.png' 
     }
   return (
     <div className='card-product' data-aos="flip-left">
