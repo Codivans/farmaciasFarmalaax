@@ -1,42 +1,254 @@
-.App {
-  text-align: center;
+body{
+  background-color: #f1f3f4;
+  font-family: arial, san-serif;
+  font-size: 16px;
+  padding: 0px;    
+  margin: 0px;
+  width: 100%;
+}
+header.header-volante{
+   background-color: white;
+   max-width: 100%;
+   display: flex;
+   justify-content: space-between;
+   align-self: center;
+   align-items: center;
+   position: sticky !important;
+   top: 0px !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header.header-volante img{
+   text-align: center;
+   width: 100px;
+   margin: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.btn-cart{
   color: white;
+  background-color: #1463b1;
+  border: 1px solid #1463b1;
+  border-radius: 6px;
+  width: 90px;
+  height: 30px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+}
+header.header-volante .btn-cart svg{
+  font-size: 18px;
+}
+header.header-volante .btn-cart span{
+   font-size: 14px;
+   font-weight: 500;
 }
 
-.App-link {
-  color: #61dafb;
+.content-cards{
+   width: 98%;
+   margin: 5px auto;
+   display: flex;
+   justify-content: space-evenly;
+   flex-wrap: wrap;
+   padding-top: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card{
+   background-color: white;
+   border-radius: 8px;
+   width: 170px;
+   height: 340px;
+   margin-top: 15px;
+   overflow: hidden;
 }
 
-button {
-  font-size: calc(10px + 2vmin);
+.card .imagen{
+   width: 160px;
+   height: 160px;
+   margin-inline: 15px;
+   padding-top: 15px;
+   overflow: hidden;
+}
+
+.card .imagen img{
+   width: 100%;
+}
+
+.card .informacion{
+   width: 90%;
+   margin: 10px auto;
+}
+
+.card .informacion h2{
+   font-weight:500;
+   font-size: 10px;
+   height: 36px;
+   overflow: hidden;
+}
+.card .informacion .precio-anterior{
+   font-family: arial, san-serif;
+   text-decoration: line-through;
+   text-align: center;
+   font-size: 12px;
+   color: #979797;
+   line-height: 10px;
+}
+
+.card .informacion .precio-nuevo{
+   font-family: arial, san-serif;
+   color: #1976d2;
+   text-align: center;
+   font-size: 14px;
+   line-height: 10px;
+   font-weight: 700;
+}
+.card button{
+   background: #1976d2;
+   border: 1px solid #1976d2;
+   border-radius: 4px;
+   padding: 10px;
+   color: white;
+   width: 98%;
+   font-size: 14px;
+   margin: 10px auto;
+}
+
+
+
+.popup {
+   display: block;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.5);
+   z-index: 99;
+}
+
+.popup-content {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background: #fff;
+   padding: 10px;
+   border-radius: 10px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+   width: 90%;
+   height: 90vh;
+   overflow: hidden;
+}
+
+.popup-content span{
+   font-size: 16px;
+   background-color: #e8e8e8;
+   border-radius: 50%;
+   padding: 4px;
+   display: flex;
+   align-items: center;
+}
+
+.popup-content h2{
+   font-size: 18px;
+   font-weight: 500;
+   text-align: center;
+}
+.popup-content #carrito{
+   height: 56vh;
+   overflow-x: auto;
+}
+
+.popup-content #carrito img.notfoundcart{
+   max-width: 100%;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.popup-content #carrito .product-cart {
+   display: flex;
+   align-items: center;
+   border-bottom: 1px solid #979797;
+}
+
+.popup-content #carrito .product-cart .img-product-cart{
+   width: 80px !important;
+}
+.popup-content #carrito .product-cart .img-product-cart img{
+   width: 80px;
+}
+
+.popup-content #carrito .product-cart .info-product{
+   margin-left: 20px;
+   width: 70%;
+}
+.popup-content #carrito .product-cart .info-product h4{
+   color: #242424;
+   font-size: 10px;
+   font-weight: 500;
+   line-height: 12px;
+   height: 36px;
+}
+
+.popup-content #carrito .product-cart .info-product p{
+   font-size: 12px;
+}
+
+.popup-content #carrito .product-cart .content-delete button{
+   background-color:#ad0606;
+   border: 1px solid #ad0606;
+   border-radius: 50%;
+   color: white;
+   font-size: 18px;
+   padding: 6px 2px;
+   width: 30px;
+   height: 30px;
+}
+
+#importeTotal{
+   font-size: 32px;
+   font-weight: 600;
+   text-align: right;
+   margin: 30px;
+}
+
+.botones-cart{
+   position: fixed;
+   bottom: 20px;
+   left: 0;
+   width: 100%;
+   color: #fff;
+   padding: 10px;
+   text-align: center;
+}
+.botones-cart button.btn-send{
+   background-color: green;
+   border: 0px solid transparent;
+   color: white;
+   font-size: 18px;
+   padding: 20px;
+   width: 90%;
+   border-radius: 4px;
+   margin-block: 5px;
+}
+
+.botones-cart button.btn-delete{
+   background-color: #818181;
+   border: 0px solid transparent;
+   color: white;
+   font-size: 16px;
+   padding: 6px;
+   width: 90%;
+   border-radius: 4px;
+   margin-block: 5px;
+}
+
+.close {
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   font-size: 20px;
+   cursor: pointer;
 }
