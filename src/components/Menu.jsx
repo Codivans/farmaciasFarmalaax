@@ -68,7 +68,7 @@ export const Menu = () => {
                         </li>
                         <li><Link to='/nosotros'>Nosotros</Link></li>
                         <li><Link to='/franquicias'>Franquicias</Link></li>
-                        {/* <li><Link to='/sucursales'>Sucursales</Link></li> */}
+                        <li><Link to='/volante'>.</Link></li>
                     </ul>
                 </nav>
             </div>
