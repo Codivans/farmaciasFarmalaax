@@ -9,6 +9,13 @@ export const Volante = () => {
     const [cart, setCart] = useState([]);
     const [show, setShow] = useState(false);
     const [showProducts, setShowProducts] = useState(true);
+    const [data, setData] = useState({
+      nombre: '',
+      calle: '',
+      colonia: '',
+      municipio: '',
+      cp: ''
+    })
 
     const products = [
       {codigo:'7501080954199',nombre:'PRESERVATIVO TROJAN PIEL DESNUDA CON 3 PIEZAS ', precio:63,oferta:59},
@@ -222,26 +229,39 @@ export const Volante = () => {
       }
 
     const enviarPedido = () => {
-        const mensajePedido = generarMensajePedido();
-        const numeroWhatsApp = '5510935095';  // Reemplaza con el número de WhatsApp deseado
-        const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensajePedido)}`;
-        
-        window.open(urlWhatsApp, '_blank');
+      console.log('first')
+      const mensajePedido = generarMensajePedido();
+      const numeroWhatsApp = '5510935095';  // Reemplaza con el número de WhatsApp deseado
+      const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensajePedido)}`;
+      
+      window.open(urlWhatsApp, '_blank');
     }
 
     const generarMensajePedido = () => {
-        let mensaje = 'Hola me interesaron estos productos, ¿me puedes tomar mi pedido por favor?\n\n';
+        let mensaje = `
+          Hola me interesaron estos productos, ¿me puedes tomar mi pedido por favor?\n\n
+          *Nombre:* ${data.nombre}\n\n
+          Mi Dirección:
+          *Calle:* ${data.calle}, *Colonia:* ${data.colonia}, *Municipio o Delegación:* ${data.municipio}, *Código Postal:* ${data.cp}\n\n
+          *Detalle de mi pedido:*\n
+        `;
 
         cart.forEach(item => {
         mensaje += `${item.quantity} ${item.quantity > 1 ? "Pzs" : "Pza"} ${item.codigo} \n ${item.nombre}\n Precio: $${item.precio.toFixed(2)}\n\n`;
         });
 
         const importeTotal = cart.reduce((total, item) => total + item.precio * item.quantity, 0);
-        mensaje += `Importe Total: $${importeTotal.toFixed(2)}`;
+        mensaje += `*Importe Total:* $${importeTotal.toFixed(2)}`;
 
         return mensaje;
         // vaciarCarrito();
     }
+
+
+    const handleChange = (event) => {
+        const { name, value } = event.target
+        setData({ ...data, [name]: value })
+    };
 
 
 
@@ -294,6 +314,7 @@ export const Volante = () => {
                       })
                     }
                   </div>
+
                   <div className="importeTotal">
                     <Link to="#" class="btn-delete">Vaciar carrito</Link>
                     <p>Total: $ {importe.toFixed(2)}</p>
@@ -309,27 +330,27 @@ export const Volante = () => {
                   <div className={showProducts ? 'content-addres' : 'content-addres-show'}>
                     <div className='control-inputs'>
                       <label>Nombre: </label>
-                      <input type="text" placeholder='Escribe tu nombre' />
+                      <input type="text" placeholder='Escribe tu nombre' name="nombre" onChange={handleChange}/>
                     </div>
                     <div className='control-inputs'>
                       <label>Calle y numero: </label>
-                      <input type="text" placeholder='Ej. Horacio Nelson #3' />
+                      <input type="text" placeholder='Ej. Horacio Nelson #3' name="calle" onChange={handleChange}/>
                     </div>
                     <div className='control-inputs'>
                       <label>Colonia: </label>
-                      <input type="text" placeholder='Ej. Moderna' />
+                      <input type="text" placeholder='Ej. Moderna' name="colonia" onChange={handleChange}/>
                     </div>
                     <div className='control-inputs'>
                       <label>Municipio o  Delegacion: </label>
-                      <input type="text" placeholder='Benito Juarez' />
+                      <input type="text" placeholder='Benito Juarez' name="municipio" onChange={handleChange}/>
                     </div>
                     <div className='control-inputs'>
                       <label>Codigo Postal: </label>
-                      <input type="text" placeholder='03510' />
+                      <input type="text" placeholder='03510' name="cp" onChange={handleChange}/>
                     </div>
                     <div class="botones-cart">
                         
-                        <button class="btn-send" onclick={enviarPedido}>Enviar pedido por WhatsApp</button>
+                        <button class="btn-send" onClick={enviarPedido}>Enviar pedido por WhatsApp</button>
                     </div>
                   </div>
               </div>
@@ -338,3 +359,4 @@ export const Volante = () => {
     </>
   )
 }
+
