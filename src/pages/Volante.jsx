@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export const Volante = () => {
     const [cart, setCart] = useState([]);
     const [show, setShow] = useState(false);
-    const [showProducts, setShowProducts] = useState(true)
+    const [showProducts, setShowProducts] = useState(true);
 
     const products = [
       {codigo:'7501080954199',nombre:'PRESERVATIVO TROJAN PIEL DESNUDA CON 3 PIEZAS ', precio:63,oferta:59},
