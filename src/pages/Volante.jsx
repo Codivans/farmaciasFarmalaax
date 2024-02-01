@@ -1,11 +1,14 @@
 import React,{ useState } from 'react';
 import './../App.css';
 import { IoCart } from "react-icons/io5";
-import { MdClose, MdDelete } from "react-icons/md";
+import { MdClose, MdDelete, MdKeyboardArrowUp, MdOutlineKeyboardArrowDown  } from "react-icons/md";
+import { CardProduct } from '../components/CardProduct';
+import { Link } from 'react-router-dom';
 
 export const Volante = () => {
     const [cart, setCart] = useState([]);
     const [show, setShow] = useState(false);
+    const [showProducts, setShowProducts] = useState(true)
 
     const products = [
       {codigo:'7501080954199',nombre:'PRESERVATIVO TROJAN PIEL DESNUDA CON 3 PIEZAS ', precio:63,oferta:59},
@@ -209,54 +212,57 @@ export const Volante = () => {
 
       const countCarrito = cart.reduce((acc,val) => acc + val.quantity,0)
 
+      const importe = cart.reduce((acc, val) => acc + val.quantity * val.oferta,0)
+
       const showCart = () => {
         setShow(!show)
       }
+      const showProductsCart = () => {
+        setShowProducts(!showProducts)
+      }
+
+    const enviarPedido = () => {
+        const mensajePedido = generarMensajePedido();
+        const numeroWhatsApp = '5510935095';  // Reemplaza con el número de WhatsApp deseado
+        const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensajePedido)}`;
+        
+        window.open(urlWhatsApp, '_blank');
+    }
+
+    const generarMensajePedido = () => {
+        let mensaje = 'Hola me interesaron estos productos, ¿me puedes tomar mi pedido por favor?\n\n';
+
+        cart.forEach(item => {
+        mensaje += `${item.quantity} ${item.quantity > 1 ? "Pzs" : "Pza"} ${item.codigo} \n ${item.nombre}\n Precio: $${item.precio.toFixed(2)}\n\n`;
+        });
+
+        const importeTotal = cart.reduce((total, item) => total + item.precio * item.quantity, 0);
+        mensaje += `Importe Total: $${importeTotal.toFixed(2)}`;
+
+        return mensaje;
+        // vaciarCarrito();
+    }
 
 
 
   return (
     <>
-        <header className='header-volante'>
+        <div className='header-volante'>
             <img src="https://farmalaax.com/assets/logo-farmaLAAX.ea6db7ee.png" title="Farmalaax" />
 
             <button id="btnOpenPopup" className="btn-cart" onClick={showCart}>
                 <IoCart />
                 <span id="cantidadCarrito">{countCarrito} Pzs</span>
             </button>
-        </header>
+        </div>
         <section className='content-cards'>
             {
                 products.map((product) => (
-                    <div className="card" key={product.codigo}>
-                        <div className="imagen">
-                            <img src={'https://farmaprontoneza.com/image/'+ parseInt(product.codigo) + '.jpg'} />
-                        </div>
-                        <div className="informacion">
-                            <h2>{product.nombre}</h2>
-                            <p className="precio-anterior">$ {product.precio}</p>
-                            <p className="precio-nuevo">$ {product.oferta}</p>
-                            <button onClick={() => addToCart(product)}>Agregar al Carrito</button>
-                        </div>
-                    </div>
+                  <CardProduct product={product} cart={cart} addToCart={addToCart} removeFromCart={removeFromCart}/>
                 ))
             }
                 
         </section>
-
-        <div id="cart">
-            <h2>Carrito de Compras</h2>
-            <ul id="cart-list">
-            {cart.map((item) => (
-                <li key={item.codigo}>
-                <span>{item.nombre}</span>
-                <span>Precio: ${item.precio.toFixed(2)}</span>
-                <span>Cantidad: {item.quantity}</span>
-                <button onClick={() => removeFromCart(item)}>Quitar</button>
-                </li>
-            ))}
-            </ul>
-        </div>
         
 
         {
@@ -265,7 +271,7 @@ export const Volante = () => {
               <div class="popup-content">
                   <span className="close" id="btnClosePopup" onClick={showCart}><MdClose /></span>
                   <h2>Carrito de Compras</h2>
-                  <div id="carrito">
+                  <div id="carrito" className={showProducts ? '' : 'ocultar-cart'}>
                     {
                       cart.map((item) => {
                         return(
@@ -275,7 +281,8 @@ export const Volante = () => {
                               </div>
                               <div className="info-product">
                                   <h4>{item.nombre}</h4>
-                                  <p>{item.quantity} x $ {item.oferta}= <b>$ { item.oferta * item.quantity}</b></p>
+                                  <p>{item.quantity} {item.quantity > 1 ? 'Pzas': 'Pza'} x $ {item.oferta.toFixed(2)}</p>
+                                  <p>$ { (item.oferta * item.quantity).toFixed(2)}</p>
                               </div>
                               <div className='content-delete'>
                                 <button onClick={() => removeFromCart(item)}>
@@ -286,14 +293,44 @@ export const Volante = () => {
                         )
                       })
                     }
-
-
                   </div>
-                  <div id="importeTotal"></div>
+                  <div className="importeTotal">
+                    <Link to="#" class="btn-delete">Vaciar carrito</Link>
+                    <p>Total: $ {importe.toFixed(2)}</p>
+                  </div>
 
-                  <div class="botones-cart">
-                      <button class="btn-delete" onclick="vaciarCarrito()">Vaciar carrito</button>
-                          <button class="btn-send"  onclick="enviarPedido()">Enviar pedido por WhatsApp</button>
+                  <button className='btn-addres' onClick={showProductsCart}>
+                    <p>
+                      {showProducts ? 'Necesito mi pedido' : 'Ver detalle del carrito'}
+                      {showProducts ? <MdKeyboardArrowUp /> : <MdOutlineKeyboardArrowDown  />}
+                    </p>
+                  </button>
+
+                  <div className={showProducts ? 'content-addres' : 'content-addres-show'}>
+                    <div className='control-inputs'>
+                      <label>Nombre: </label>
+                      <input type="text" placeholder='Escribe tu nombre' />
+                    </div>
+                    <div className='control-inputs'>
+                      <label>Calle y numero: </label>
+                      <input type="text" placeholder='Ej. Horacio Nelson #3' />
+                    </div>
+                    <div className='control-inputs'>
+                      <label>Colonia: </label>
+                      <input type="text" placeholder='Ej. Moderna' />
+                    </div>
+                    <div className='control-inputs'>
+                      <label>Municipio o  Delegacion: </label>
+                      <input type="text" placeholder='Benito Juarez' />
+                    </div>
+                    <div className='control-inputs'>
+                      <label>Codigo Postal: </label>
+                      <input type="text" placeholder='03510' />
+                    </div>
+                    <div class="botones-cart">
+                        
+                        <button class="btn-send" onclick={enviarPedido}>Enviar pedido por WhatsApp</button>
+                    </div>
                   </div>
               </div>
             </div>
