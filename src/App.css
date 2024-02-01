@@ -6,18 +6,19 @@ body{
   margin: 0px;
   width: 100%;
 }
-header.header-volante{
+.header-volante{
    background-color: white;
-   max-width: 100%;
+   width: 100%;
+   height: 60px;
    display: flex;
    justify-content: space-between;
    align-self: center;
    align-items: center;
-   position: sticky !important;
-   top: 0px !important;
+   position: sticky;
+   top: 0px;
 }
 
-header.header-volante img{
+.header-volante img{
    text-align: center;
    width: 100px;
    margin: 10px;
@@ -111,6 +112,37 @@ header.header-volante .btn-cart span{
    width: 98%;
    font-size: 14px;
    margin: 10px auto;
+   cursor: pointer;
+}
+
+.card .content-buttons {
+   background-color: whites;
+   display: flex;
+   align-items: center;
+   margin: 0px auto;
+   padding: 10px;
+}
+
+.card .content-buttons button.btn-control{
+   background-color: #cfe5fc;
+   border: 1px solid #1976d2;
+   color: #1463b1;
+   width: 40px;
+   padding: 4px;
+   font-weight: 600;
+   font-size: 16px;
+   display: flex;
+   justify-content: center;
+   cursor: pointer;
+}
+.card .content-buttons span{
+   font-size: 12px;
+   font-weight: 500;
+   width: 30px;
+   height: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 
@@ -137,7 +169,7 @@ header.header-volante .btn-cart span{
    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
    width: 90%;
    height: 90vh;
-   overflow: hidden;
+   overflow-x: auto;
 }
 
 .popup-content span{
@@ -155,8 +187,9 @@ header.header-volante .btn-cart span{
    text-align: center;
 }
 .popup-content #carrito{
-   height: 56vh;
+   height: 50vh;
    overflow-x: auto;
+   transition: height 1s;
 }
 
 .popup-content #carrito img.notfoundcart{
@@ -189,12 +222,36 @@ header.header-volante .btn-cart span{
    font-size: 10px;
    font-weight: 500;
    line-height: 12px;
-   height: 36px;
+   height: 24px;
+   overflow: hidden;
 }
 
 .popup-content #carrito .product-cart .info-product p{
+   color: #242424;
    font-size: 12px;
+   font-weight: 500;
+   width: 90%;
+   padding: 4px;
+   line-height: 8px;
 }
+
+
+.popup-content .importeTotal{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.popup-content .importeTotal a{
+   color: #242424;
+   font-size: 12px;
+   margin-left: 10px;
+}
+.popup-content .importeTotal p{
+   font-size: 16px;
+   text-align: right;
+   margin-right: 10px;
+}
+
 
 .popup-content #carrito .product-cart .content-delete button{
    background-color:#ad0606;
@@ -207,39 +264,55 @@ header.header-volante .btn-cart span{
    height: 30px;
 }
 
-#importeTotal{
-   font-size: 32px;
-   font-weight: 600;
-   text-align: right;
-   margin: 30px;
+.btn-addres{
+   background-color: #ededed;
+   border: 1px solid #d2d2d2;
+   width: 100%;
+   padding: 2px 8px;
+   cursor: pointer;
+}
+.btn-addres p{
+   line-height: 10px;
+   display: flex;
+   justify-content: space-between;
+   font-size: 12px;
+   align-items: center;
+}
+
+.btn-addres svg{
+   font-size: 20px;
+}
+
+.popup-content .ocultar-cart{
+   height: 0px !important;
+   transition: height 1s;
 }
 
 .botones-cart{
-   position: fixed;
-   bottom: 20px;
-   left: 0;
    width: 100%;
    color: #fff;
-   padding: 10px;
    text-align: center;
 }
+
+.botones-cart button.btn-delete{
+   background-color: white;
+   border: 0px solid transparent;
+   color: #979797;
+   font-size: 14px;
+   width: auto;
+   border-radius: 4px;
+   margin-left: 65%;
+   text-decoration: underline;
+   cursor: pointer;
+   margin-bottom: 10px;
+}
+
 .botones-cart button.btn-send{
    background-color: green;
    border: 0px solid transparent;
    color: white;
    font-size: 18px;
-   padding: 20px;
-   width: 90%;
-   border-radius: 4px;
-   margin-block: 5px;
-}
-
-.botones-cart button.btn-delete{
-   background-color: #818181;
-   border: 0px solid transparent;
-   color: white;
-   font-size: 16px;
-   padding: 6px;
+   padding: 10px;
    width: 90%;
    border-radius: 4px;
    margin-block: 5px;
@@ -251,4 +324,39 @@ header.header-volante .btn-cart span{
    right: 10px;
    font-size: 20px;
    cursor: pointer;
+}
+.content-addres-show{
+   height: auto;
+   background-color: white;
+   overflow: hidden;
+   transition: height 1s;
+} 
+.content-addres{
+   height: 0px;
+   background-color: white;
+   overflow: hidden;
+   transition: height 1s;
+}
+
+
+.control-inputs{
+   display: block;
+   width: 90%;
+   margin: 0px auto;
+}
+
+.control-inputs label{
+   display: block;
+   font-size: 12px;
+   color: #242424;
+   line-height: 10px;
+   margin-top: 10px;
+}
+.control-inputs input{
+   border-radius: 4px;
+   border: 1px solid #979797;
+   width: 96%;
+   margin-block: 10px;
+   font-size: 12px;
+   padding: 6px;
 }
